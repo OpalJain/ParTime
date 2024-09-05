@@ -1,30 +1,20 @@
-import './App.css'
-import FooterComponent from './components/FooterComponent'
-import HeaderComponent from './components/HeaderComponent'
-import ListUserComponents from './components/ListUserComponents'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import UserComponent from './components/UserComponent'
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './components/home-page/HomePage';
+import React, { useState } from 'react';
+import LoginPopup from './components/common/form/login/LoginPopup';
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
-        <HeaderComponent />
-          <Routes>
-            {/* // http://localhost:3000 */}
-            <Route path='/' element = { <ListUserComponents />}></Route>
-            {/* // http://localhost:3000/users */}
-            <Route path='/users' element = { <ListUserComponents />}></Route>
-            {/* // http://localhost:3000/add-user */}
-            <Route path='/add-user' element = { <UserComponent />}></Route>
-            {/* // http://localhost:3000/edit-user/1 */}
-            <Route path='/edit-user/:id' element = { <UserComponent />}></Route>
-          </Routes>
-        <FooterComponent />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/login' element={<LoginPopup />} /> {/* Route for MainComponent */}
+        </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
